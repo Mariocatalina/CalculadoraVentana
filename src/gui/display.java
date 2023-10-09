@@ -15,6 +15,7 @@ public class display extends JFrame {
 	JFrame d;
 	JButton boton1;
 	JButton boton2;
+	JButton boton3;
 	JTextField texto1;
     JTextField texto2;
     JLabel resultado;
@@ -23,6 +24,7 @@ public class display extends JFrame {
 		d= new JFrame();
 		boton1 = new JButton();
 		boton2 = new JButton();
+		boton3 = new JButton();
 		texto1 = new JTextField();
         texto2 = new JTextField();
         resultado = new JLabel();
@@ -34,7 +36,7 @@ public class display extends JFrame {
 		d.getContentPane().setBackground(Color.gray);
 		
 		
-		Font fuente = new Font("Arial", Font.PLAIN, 24);
+		Font fuente = new Font("Arial", Font.PLAIN, 20);
 		boton1.setFont(fuente);
 		boton2.setFont(fuente);
 		resultado.setFont(fuente);
@@ -49,16 +51,23 @@ public class display extends JFrame {
         resultado.setBounds(100, 150, 200, 30);
 		
 		
+		
+		
+		
         boton1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                
+            	
+            try {	
             	String textoEntrada1 = texto1.getText();
-            	String textoEntrada2 = texto2.getText();
+            	String textoEntrada2 = texto2.getText();            	            	
             	double num1= Double.parseDouble(textoEntrada1);
             	double num2= Double.parseDouble(textoEntrada2);
             	double resultado1 = num1+num2;
             	
             	resultado.setText("Resultado: " + resultado1);
+            }catch(NumberFormatException excepcion) {
+            	resultado.setText("Introduce un numero");
+            }
             	
             }
         });
@@ -67,14 +76,19 @@ public class display extends JFrame {
         boton2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 
+            try {	
             	String textoEntrada1 = texto1.getText();
-            	String textoEntrada2 = texto2.getText();
+            	String textoEntrada2 = texto2.getText();            	
             	double num1= Double.parseDouble(textoEntrada1);
-            	double num2= Double.parseDouble(textoEntrada2);
+            	double num2= Double.parseDouble(textoEntrada2);            	
             	double resultado2 = num1-num2;
             	
             	resultado.setText("Resultado: " + resultado2);
             	
+	            	resultado.setText("Resultado: " + resultado2);
+	            }catch(NumberFormatException excepcion) {
+	            	resultado.setText("Introduce un numero");
+	            }
             }
         });
         
