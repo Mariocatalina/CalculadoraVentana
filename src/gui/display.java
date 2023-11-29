@@ -214,10 +214,18 @@ public class display extends JFrame {
         
         coma.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-            	
-            		texto1.setText(numeroActual+",");
-            		texto2.setText(",");
-
+                if (!campoActivo) {
+                    // Agregar la coma solo si no hay ya una coma en el texto1
+                    if (!texto1.getText().contains(",")) {
+                        texto1.setText(texto1.getText() + ",");
+                        campoActivo = true;
+                    }
+                } else {
+                    // Si ya estamos en el segundo campo, agregar la coma al texto2
+                    if (!texto2.getText().contains(",")) {
+                        texto2.setText(texto2.getText() + ",");
+                    }
+                }
             }
         });
         
