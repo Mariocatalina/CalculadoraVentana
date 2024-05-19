@@ -208,6 +208,7 @@ public class display extends JFrame {
             		texto2.setText("");
             		numeroActual = "";
 	                operacion = ' ';
+	                resultado.setText("");
 	               
             }
         });
